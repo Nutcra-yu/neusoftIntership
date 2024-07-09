@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id="app">
+			<!-- 输⼊数据会延迟到失去焦点时才绑定 -->
+			{{lazyStr}}<input type="text" v-model.lazy="lazyStr" /><br>
+			<!-- 输⼊数据会⾃动转换为number，所以可以直接进⾏运算 -->
+			{{numberStr+1}}<input type="text" v-model.number="numberStr" /><br>
+			<!-- 输⼊数据会⾃动去除前后空格 -->
+			{{trimStr}}<input type="text" v-model.trim="trimStr" /><br>
+		</div>
+		<script src="https://unpkg.com/vue"></script>
+		<script>
+			Vue.createApp({
+				data() {
+					return {
+						lazyStr: '',
+						numberStr: '',
+						trimStr: ''
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+	<head>
+		<script src="http://unpkg.com/vue"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<table width="100%" style="text-align: center;">
+				<tr>
+					<th>name</th>
+					<th>salePrice</th>
+					<th>num</th>
+					<th>totalPrice</th>
+				</tr>
+				<tr>
+					<td>phone</td>
+					<td>{{price}}</td>
+					<td>
+						<button @click="num--">-</button>
+						{{num}}
+						<button @click="num++">+</button>
+					</td>
+					<td>{{total}}</td>
+				</tr>
+			</table>
+		</div>
+
+		<script>
+
+			Vue.createApp(
+			{
+				data() {
+					return {
+						price: 2000,
+						num: 0
+					}
+				},
+				computed: {
+					total() {
+						return this.num * this.price;
+					}
+				}
+			}
+			).mount("#app")
+		</script>
+	</body>
+
+</html>

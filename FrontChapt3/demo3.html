@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id="app">
+			{{moneyStr}}
+		</div>
+
+		<script src="https://unpkg.com/vue"></script>
+		<script>
+			Vue.createApp({
+				data() {
+					return {
+						money: 100
+					}
+				},
+				computed: {
+					moneyStr() {
+						return this.money + '￥'
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

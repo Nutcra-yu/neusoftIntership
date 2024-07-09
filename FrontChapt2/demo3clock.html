@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+	<script src="https://unpkg.com/vue@3.0.11"></script>
+</head>
+
+<body>
+	<div id="app">
+		<p>{{date}}</p>
+	</div>
+
+	<script>
+		Vue.createApp({
+			data() {
+				return {
+					date: '00:00:00'
+				}
+			},
+			mounted() { //mounted()生命周期：DOM挂载后
+				setInterval(() => {
+					let d = new Date();
+					this.date = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+				}, 1000);
+			}
+		}).mount("#app")
+	</script>
+</body>
+
+</html>

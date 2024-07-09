@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue@3.0.11"></script>
+
+    <style>
+        .one {
+            color: red;
+        }
+
+        .two {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    className: 'one'
+                }
+            },
+            template:
+                '<div :class="className">DOM元素的样式绑定</div>' +
+                '<p>hellao</p>' +
+                '<input v-model="className"/>'
+
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id="app">
+			<h3>注册</h3>
+			<form>
+				用户：<input type="text" v-model="myForm.username" /><br>
+				密码：<input type="password" v-model="myForm.password" /><br>
+				确认：<input type="password" v-model="myForm.beginpassword" /><br>
+				性别：
+				<input type="radio" v-model="myForm.sex" value="0" />男
+				<input type="radio" v-model="myForm.sex" value="1" />女<br>
+				爱好：
+				<input type="checkbox" v-model="myForm.like" value="0" />读书
+				<input type="checkbox" v-model="myForm.like" value="1" />体育
+				<input type="checkbox" v-model="myForm.like" value="2" />旅游<br>
+				国籍：
+				<select v-model="myForm.nationality">
+					<option value="0">中国</option>
+					<option value="1">美国</option>
+					<option value="2">英国</option>
+				</select><br>
+				简介：<textarea v-model="myForm.brief" rows="5" cols="30"></textarea><br>
+				<input type="button" value="提交" @click="handler" />
+			</form>
+		</div>
+		<script src="https://unpkg.com/vue"></script>
+		<script>
+			Vue.createApp({
+				data() {
+					return {
+						myForm: {
+							username: '',
+							password: '',
+							beginpassword: '',
+							sex: 0,
+							like: [],
+							nationality: 0,
+							brief: ''
+						}
+					}
+				},
+				methods: {
+					handler: function() {
+						console.log(this.myForm.username);
+						console.log(this.myForm.password);
+						console.log(this.myForm.beginpassword);
+						console.log(this.myForm.sex);
+						console.log(this.myForm.like);
+						console.log(this.myForm.nationality);
+						console.log(this.myForm.brief);
+						console.log(this.myFrom)
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

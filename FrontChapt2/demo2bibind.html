@@ -1,0 +1,26 @@
+<html>
+	
+	<head>
+		<script src="https://unpkg.com/vue@3.0.11"></script>
+	</head>
+	
+	<body>
+		
+		<div id="app">
+			<p>{{msg}}</p>
+			<input v-model="msg">
+		</div>
+		
+		<script>
+			const myApp = {
+				data() {
+					return{
+						msg:"hello"
+					}
+				}
+			}
+			Vue.createApp(myApp).mount("#app")
+		</script>
+	</body>
+	
+</html>

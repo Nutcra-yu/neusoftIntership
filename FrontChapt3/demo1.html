@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<body>
+    <div id="app">
+        <p>原数据：{{msg}}</p>
+        <p>新数据：{{reversedMsg}}</p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    msg: 'hello world!'
+                }
+            },
+            computed: {
+                reversedMsg() {
+                    return this.msg.split('').reverse().join('');
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+
+	<body>
+
+		<div id="app">
+			商品名称：{{goods.name}}；
+			<br />
+			数量：
+			<button @click="sub">-</button>{{goods.quantity}}<button @click="add">+</button>
+			<br>
+			总价：{{total}}
+		</div>
+
+		<script src="http://unpkg.com/vue"></script>
+
+		<script>
+			Vue.createApp({
+				data() {
+					return {
+						goods: {
+							name: '⼩⽶⼿机',
+							quantity: 1
+						}
+					}
+				},
+				computed: {
+					total() {
+						return this.goods.quantity * 100;
+					},
+					goodsStr() { //这⾥新添加⼀个计算属性，将对象转变为字符串
+						return JSON.stringify(this.goods);
+					}
+				},
+				methods: {
+					add() {
+						this.goods.quantity++;
+					},
+					sub() {
+						this.goods.quantity--;
+					}
+				},
+				watch: {
+					goodsStr(newVal, oldVal) { //这⾥不再监听对象，⽽是监听字符串
+						let newGoods = JSON.parse(newVal);
+						let oldGoods = JSON.parse(oldVal);
+						this.goods.quantity = newGoods.quantity <= 0 ? oldGoods.quantity: newGoods.quantity;
+					}
+				}
+			}).mount('#app');
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://unpkg.com/vue"></script>
+	</head>
+
+	<body>
+
+		<div id="app">
+			<input type="text" v-model="msg">{{msg}}
+			<p>{{msg}}:{{len()}}</p>
+			<p>{{twoOfMsg()}}</p>
+		</div>
+
+		<script>
+			const myApp = {
+				data() {
+					return {
+						msg: 'abcd'
+					}
+				},
+				methods: {
+					len() {
+						return this.msg.length
+					}
+					,
+					twoOfMsg() {
+						const lista = this.msg.substring(0,2);
+						return lista;
+					}
+				},
+			}
+
+
+			Vue.createApp(myApp).mount("#app")
+		</script>
+
+	</body>
+
+</html>

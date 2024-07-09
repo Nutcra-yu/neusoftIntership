@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<body>
+    <div id="app">
+
+        <input type="text" v-model="ValueA">
+        <input type="text" v-model="ValueB"><br>
+
+        <!-- pointme就是点击事件的处理函数 -->
+        <button v-on:click="pointme">点击我</button>
+        <!-- v-on指令的简写 -->
+        <button @click="pointyou">点击你</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            data(){
+                return{
+                    ValueA:" ",
+                    ValueB:" "
+                }
+            },
+            //methods:此处声明Vue⽅法
+            methods: {
+                pointme() {
+                    alert('点击了'+this.ValueA);
+                },
+                pointyou() {
+                    alert('点击了'+this.ValueB);
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

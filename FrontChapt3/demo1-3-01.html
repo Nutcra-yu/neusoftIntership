@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id="app">
+			<table width="100%" style="text-align: center;">
+				<tr>
+					<th>商品编号</th>
+					<th>商品名称</th>
+					<th>商品单价</th>
+					<th>商品数量</th>
+					<th>合计</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>xiaomi10</td>
+					<td>{{price}}</td>
+					<td>
+						<button @click="subtract">-</button>
+						{{quantity}}
+						<button @click="add">+</button>
+					</td>
+					<td>{{totalPrice}}</td>
+				</tr>
+			</table>
+		</div>
+
+		<script src="https://unpkg.com/vue"></script>
+		<script>
+			Vue.createApp({
+				data() {
+					return {
+						price: 2999,
+						quantity: 1
+					}
+				},
+				computed: {
+					totalPrice() {
+						return this.price * this.quantity;
+					}
+				},
+				methods: {
+					add() {
+						this.quantity++;
+					},
+					subtract() {
+						this.quantity--;
+					}
+				},
+				watch: {
+					quantity(newVal, oldVal)  {
+						this.quantity = newVal <= 0 ? oldVal : newVal
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

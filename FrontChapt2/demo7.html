@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="colorValue">
+        <input type="text" v-model="fontSizeValue">
+        <div :style="{color:colorValue,fontSize:fontSizeValue}">DOM元素的样
+            式绑定</div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    colorValue: 'red',
+                    fontSizeValue: '48px'
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

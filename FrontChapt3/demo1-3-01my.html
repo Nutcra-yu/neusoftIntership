@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://unpkg.com/vue"></script>
+	</head>
+	
+	<body>
+		
+		<div id="app">
+			<table>
+				<tr>
+					<button @click="dec()">-</button>
+					{{num}}
+					<button @click="add()">+</button>
+				</tr>
+			</table>
+		</div>
+		
+		<script>
+			const myApp = {
+				data() {
+					return {
+						num:0
+					}
+				},
+				methods:{
+					add(){
+						this.num++
+					},
+					dec(){
+						this.num--
+					}
+				},
+				watch:{
+					num(newVal,oldVal){
+						this.num = newVal < 0 ? oldVal:newVal;
+					}
+				}
+			}
+			
+			Vue.createApp(myApp).mount("#app")
+		</script>
+		
+	</body>
+	
+</html>

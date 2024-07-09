@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .one {
+            color: red;
+        }
+
+        .two {
+            font-size: 48px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="oneActive" >
+        <input type="checkbox" v-model="twoActive">
+        <div :class="{one:oneActive,two:twoActive}">DOM元素的样式绑定</div>
+
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            el: '#app',
+            data() {
+                return {
+                    oneActive: true,
+                    twoActive: true
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

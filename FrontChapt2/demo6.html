@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .one {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="userId">
+        <div :class="userId==1?className:''">DOM元素的样式绑定</div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    userId: 1,
+                    className: 'one'
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
