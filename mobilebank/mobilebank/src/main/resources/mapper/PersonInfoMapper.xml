@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--绑定对应的mapper接口
+-->
+<mapper namespace="com.neuedu.bank.mapper.PersoninfoMapper">
+    <select id="selectByTelAndPwd" parameterType="Personinfo" resultType="Personinfo">
+        select p.id,p.realname,d.dicItemName sex,p.cardId,p.birthday,p.address,p.mail,m.telephone
+        from mobile  m
+                 inner join personinfo p  on m.telephone=p.telephone
+                 INNER JOIN dicitem d on d.dicTypeCode=3 and p.sex=d.dicItemCode
+        where m.telephone=#{tel} and m.password=#{pwd}
+    </select>
+    <select id="selectByTel" parameterType="Personinfo" resultType="Personinfo">
+        select *
+        from personinfo
+        where telephone=#{tel}
+    </select>
+    <insert id="inserByTelandPwd" parameterType="Personinfo" >
+            INSERT INTO mobile (telephone, password)
+            VALUES (#{telephone}, #{password})
+    </insert>
+
+
+
+</mapper>

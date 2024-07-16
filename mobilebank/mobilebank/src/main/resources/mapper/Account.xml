@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--绑定对应的mapper接口
+-->
+<mapper namespace="com.neuedu.bank.mapper.AccountMapper">
+    <select id="findRelateAccountByTel" parameterType="Mobile" resultType="List">
+        select a.accountName
+        from mobileaccount m1
+                 inner join mobile p  on m1.telId=p.id
+                 inner join account a on a.id=m1.accountId
+        where p.telephone=#{tel}
+
+    </select>
+
+
+
+
+
+</mapper>
